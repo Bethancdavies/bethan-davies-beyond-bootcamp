@@ -1,18 +1,27 @@
-startButton = document.querySelector('.startButton');
-homeScreen = document.querySelector('.homeScreen');
-leftArrow = document.querySelector('#left');
-upArrow = document.querySelector('#up');
-rightArrow = document.querySelector('#right'); 
-downArrow = document.querySelector('#down');
+// global variables 
+const startButton = document.querySelector('.startButton');
+const homeScreen = document.querySelector('.homeScreen');
+const arrowLeftControl= document.querySelector('#left');
+const arrowUpControl = document.querySelector('#up');
+const arrowRightControl = document.querySelector('#right'); 
+const arrowDownControl = document.querySelector('#down'); 
 
+// pull functions up here once done for logical access
 
-
-
-startButton.addEventListener("click", hidden) 
+// start button functionality
+startButton.addEventListener("click", hideMainMenu) 
 // removes text from page before Starting game
-function hidden (){ 
+function hideMainMenu (){ 
     homeScreen.classList.add('hidden') 
-} 
+}  
+handleKeyClick = event => {
+    let keyClick = event.key;
+    console.log(keyClick); 
+}
+// must listen to entire document? makes most sense, rethink later
+document.addEventListener('keydown', handleKeyClick)
+
+
 
 
 // write basic keydown activities 
