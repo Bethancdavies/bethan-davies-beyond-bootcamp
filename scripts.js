@@ -13,8 +13,10 @@ startButton.addEventListener("click", hideMainMenu)
 // removes text from page before Starting game
 function hideMainMenu (){ 
     homeScreen.classList.add('hidden') 
+    const startMusic = document.querySelector('#startMusic'); 
+    startMusic.play(); 
 }  
-
+// write basic keydown activities 
 handleKeyClick = ({key}) => {  
     switch (key){ 
  case 'ArrowUp':

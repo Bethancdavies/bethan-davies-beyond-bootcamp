@@ -280,6 +280,7 @@ p {
 .hidden {
   opacity: 0;
   transition: 2s;
+  pointer-events: none;
 }
 
 .controls {
