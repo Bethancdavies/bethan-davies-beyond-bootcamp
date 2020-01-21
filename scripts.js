@@ -14,11 +14,31 @@ startButton.addEventListener("click", hideMainMenu)
 function hideMainMenu (){ 
     homeScreen.classList.add('hidden') 
 }  
-handleKeyClick = event => {
-    let keyClick = event.key;
-    console.log(keyClick); 
-}
-// must listen to entire document? makes most sense, rethink later
+
+handleKeyClick = ({key}) => {  
+    switch (key){ 
+ case 'ArrowUp':
+     arrowUpControl.classList.toggle('clicked')
+      break;
+    case 'ArrowRight':
+      arrowRightControl.classList.toggle('clicked')
+      break;
+    case 'ArrowDown':
+      arrowDownControl.classList.toggle('clicked')
+      break;
+    case 'ArrowLeft':
+      arrowLeftControl.classList.toggle('clicked')
+      break;
+    default:
+      break;
+  } }
+    
+
+
+
+
+
+// 
 document.addEventListener('keydown', handleKeyClick)
 
 
