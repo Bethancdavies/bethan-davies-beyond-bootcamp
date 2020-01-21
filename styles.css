@@ -287,6 +287,7 @@ p {
   display: flex;
   font-size: 7rem;
   justify-content: center;
+  transition: all, 0.3s;
 }
 .controls i {
   padding: 0 80px;

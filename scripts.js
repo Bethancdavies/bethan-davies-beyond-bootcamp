@@ -1,11 +1,12 @@
 // global variables 
 const startButton = document.querySelector('.startButton');
-const homeScreen = document.querySelector('.homeScreen');
+const homeScreen = document.querySelector('.homeScreen'); 
+const controls = document.querySelectorAll('.controls i')
 const arrowLeftControl= document.querySelector('#left');
 const arrowUpControl = document.querySelector('#up');
 const arrowRightControl = document.querySelector('#right'); 
 const arrowDownControl = document.querySelector('#down'); 
-
+const keyButtonSound = document.querySelector('#keyButtonSound')
 // pull functions up here once done for logical access
 
 // start button functionality
@@ -17,23 +18,31 @@ function hideMainMenu (){
     startMusic.play(); 
 }  
 // write basic keydown activities 
-handleKeyClick = ({key}) => {  
+handleKeyClick = ({key}) => {   
+    keyButtonSound.play(); 
+    console.log(keyButtonSound)
     switch (key){ 
  case 'ArrowUp':
-     arrowUpControl.classList.toggle('clicked')
+     arrowUpControl.classList.add('clicked')  
       break;
     case 'ArrowRight':
-      arrowRightControl.classList.toggle('clicked')
+      arrowRightControl.classList.add('clicked')
       break;
     case 'ArrowDown':
-      arrowDownControl.classList.toggle('clicked')
+      arrowDownControl.classList.add('clicked')
       break;
     case 'ArrowLeft':
-      arrowLeftControl.classList.toggle('clicked')
+      arrowLeftControl.classList.add('clicked')
       break;
     default:
       break;
-  } }
+  } } 
+
+  handleKeyUp = () => {
+  controls.forEach(control =>{
+      control.classList.remove('clicked') 
+  })
+  }
     
 
 
@@ -41,7 +50,8 @@ handleKeyClick = ({key}) => {
 
 
 // 
-document.addEventListener('keydown', handleKeyClick)
+document.addEventListener('keydown', handleKeyClick) 
+document.addEventListener('keyup', handleKeyUp) 
 
 
 
