@@ -245,6 +245,7 @@ html {
   font-size: 62.5%;
 }
 /* wrapper */
+
 /* header styling */
 
 header {
@@ -255,8 +256,9 @@ header {
 }
 h1 {
   font-size: 7rem;
-  text-shadow: #000;
   letter-spacing: 6px;
+  text-shadow: 0 0 5px #ff0000, 0 0 8px #0000ff;
+  text-align: center;
 }
 .homeScreen {
   display: flex;
@@ -269,8 +271,13 @@ h1 {
   font-family: spaceFont;
   font-size: 3.5rem;
   cursor: pointer;
+  background: rgba(255, 255, 255, 0.6);
   margin-top: 50px;
   padding: 10px;
+  border-radius: 50px;
+  width: 300px;
+  border: 2px solid #0000ff;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
 }
 p {
   font-size: 2rem;
@@ -288,10 +295,28 @@ p {
   font-size: 7rem;
   justify-content: center;
   transition: all, 0.3s;
+  text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
 }
 .controls i {
   padding: 0 80px;
 }
+/* media query at 930px */
+
+@media only screen and (max-width: 930px) {
+  .controls i {
+    padding: 0 30px;
+  }
+}
 .clicked {
   color: red;
+}
+
+#muteButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  padding: 10px;
 }

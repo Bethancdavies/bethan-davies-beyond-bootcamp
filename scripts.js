@@ -1,13 +1,15 @@
 // global variables 
 const startButton = document.querySelector('.startButton');
 const homeScreen = document.querySelector('.homeScreen'); 
-const controls = document.querySelectorAll('.controls i')
+const controls = document.querySelectorAll('.controls i');
 const arrowLeftControl= document.querySelector('#left');
 const arrowUpControl = document.querySelector('#up');
 const arrowRightControl = document.querySelector('#right'); 
 const arrowDownControl = document.querySelector('#down'); 
-const keyButtonSound = document.querySelector('#keyButtonSound')
-// pull functions up here once done for logical access
+const keyButtonSound = document.querySelector('#keyButtonSound');
+const muteButton = document.querySelector('#muteButton i');
+const allSounds = document.querySelectorAll('audio');
+// pull functions up here once done for logical access 
 
 // start button functionality
 startButton.addEventListener("click", hideMainMenu) 
@@ -17,10 +19,10 @@ function hideMainMenu (){
     const startMusic = document.querySelector('#startMusic'); 
     startMusic.play(); 
 }  
-// write basic keydown activities 
-handleKeyClick = ({key}) => {   
+// basic key down functionality, when key pressed fires class and plays sound
+handleKeyClick = ({key}) => {    
     keyButtonSound.play(); 
-    console.log(keyButtonSound)
+    console.log(key)
     switch (key){ 
  case 'ArrowUp':
      arrowUpControl.classList.add('clicked')  
@@ -37,29 +39,29 @@ handleKeyClick = ({key}) => {
     default:
       break;
   } } 
-
+// keyup functionality quickly adds and removes class vs toggle which requires you to click again to revert to original class
   handleKeyUp = () => {
   controls.forEach(control =>{
       control.classList.remove('clicked') 
   })
   }
     
-
-
-
-
-
-// 
 document.addEventListener('keydown', handleKeyClick) 
 document.addEventListener('keyup', handleKeyUp) 
 
+// handle mute function, toggle between two icons using class List
+handleMute = () =>{
+    muteButton.classList.toggle('fa-volume-mute');
+    muteButton.classList.toggle('fa-volume-up'); 
+    console.log (allSounds);  
+    // get this to apply just once, returns false every time ?
+    allSounds.forEach(sound =>{
+        sound.muted = true ;
+    })
+}
+// to do: pause button, mute button 
+muteButton.addEventListener('click', handleMute)
 
-
-
-// write basic keydown activities 
-// left up right down 
-
-// to do: pause button, mute button
 // score counter 
 // functionality, how do I want it to work 
 // animate and generate falling buttons? icons easiest?
