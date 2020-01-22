@@ -22,7 +22,6 @@ function hideMainMenu (){
 // basic key down functionality, when key pressed fires class and plays sound
 handleKeyClick = ({key}) => {    
     keyButtonSound.play(); 
-    console.log(key)
     switch (key){ 
  case 'ArrowUp':
      arrowUpControl.classList.add('clicked')  
@@ -53,13 +52,22 @@ document.addEventListener('keyup', handleKeyUp)
 handleMute = () =>{
     muteButton.classList.toggle('fa-volume-mute');
     muteButton.classList.toggle('fa-volume-up'); 
-    console.log (allSounds);  
-    // get this to apply just once, returns false every time ?
-    allSounds.forEach(sound =>{
-        sound.muted = true ;
-    })
+  
+// class list returns an object used [1] to represent the second class listed which contains the toggled mute or volume up.  IF class is mute, all sounds stop, ELSE the sounds will play 
+    if (muteButton.classList[1] === 'fa-volume-mute'){
+        allSounds.forEach(sound =>{
+            sound.muted = true; 
+        }) 
+    } 
+    else {
+        allSounds.forEach(sound=>{
+            sound.muted = false;
+        })
+    }
 }
-// to do: pause button, mute button 
+
+
+// pause button
 muteButton.addEventListener('click', handleMute)
 
 // score counter 
