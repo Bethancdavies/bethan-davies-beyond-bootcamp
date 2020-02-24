@@ -19,8 +19,8 @@ function hideMainMenu (){
     const startMusic = document.querySelector('#startMusic'); 
     startMusic.play(); 
 }  
-// basic key down functionality, when key pressed fires class and plays sound
-handleKeyClick = ({key}) => {    
+// basic key down functionality, when key pressed fires class and plays sound, depending on which arrow is clicked on keyboard it will correspond to arrow on screen.  
+const handleKeyClick = ({key}) => {    
     keyButtonSound.play(); 
     switch (key){ 
  case 'ArrowUp':
@@ -39,7 +39,7 @@ handleKeyClick = ({key}) => {
       break;
   } } 
 // keyup functionality quickly adds and removes class vs toggle which requires you to click again to revert to original class
-  handleKeyUp = () => {
+  const handleKeyUp = () => {
   controls.forEach(control =>{
       control.classList.remove('clicked') 
   })
@@ -49,7 +49,7 @@ document.addEventListener('keydown', handleKeyClick)
 document.addEventListener('keyup', handleKeyUp) 
 
 // handle mute function, toggle between two icons using class List
-handleMute = () =>{
+const handleMute = () =>{
     muteButton.classList.toggle('fa-volume-mute');
     muteButton.classList.toggle('fa-volume-up'); 
   
@@ -72,4 +72,6 @@ muteButton.addEventListener('click', handleMute)
 
 // score counter 
 // functionality, how do I want it to work 
-// animate and generate falling buttons? icons easiest?
+// animate and generate falling buttons? icons easiest? 
+// https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations this is a good resource 
+// most likely a canvas element
