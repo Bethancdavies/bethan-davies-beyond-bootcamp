@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>KeyDown Showdown</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header>
       <button id="muteButton"><i class="fas fa-volume-up"></i></button>
-      <div class="homeScreen">
+      <div id="score">
+        <h2>Score</h2>
+        <h2>Time</h2>
+      </div>
+      <div class="homeScreen wrapper">
         <h1>Keydown showdown</h1>
         <p>Instructions:</p>
         <p>
@@ -19,8 +23,14 @@
         <p>Press play below to begin</p>
         <button type="button" class="startButton">Start</button>
       </div>
-      <canvas id="myCanvas"></canvas>
-      <section class="controls">
+      <canvas
+        class="wrapper"
+        id="myCanvas"
+        width="1000"
+        height="600"
+        style="border:1px solid"
+      ></canvas>
+      <section class="controls wrapper">
         <i class="fas fa-arrow-circle-left" id="left"></i>
         <i class="fas fa-arrow-circle-up" id="up"></i>
         <i class="fas fa-arrow-circle-right" id="right"></i>

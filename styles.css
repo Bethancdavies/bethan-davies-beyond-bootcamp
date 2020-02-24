@@ -245,7 +245,10 @@ html {
   font-size: 62.5%;
 }
 /* wrapper */
-
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
 /* header styling */
 
 header {
@@ -324,9 +327,17 @@ p {
 }
 
 canvas {
-  height: 100vh;
-  width: 100vw;
   position: absolute;
-  top: 0;
+  top: 10%;
+  right: 10%;
+}
+
+#score {
+  font-size: 1.5rem;
+  border: 1px solid white;
+  width: 120px;
+  position: fixed;
   right: 0;
+  top: 60px;
+  text-align: center;
 }

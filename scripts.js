@@ -18,6 +18,7 @@ function hideMainMenu (){
     homeScreen.classList.add('hidden') 
     const startMusic = document.querySelector('#startMusic'); 
     startMusic.play(); 
+    
 }  
 // basic key down functionality, when key pressed fires class and plays sound, depending on which arrow is clicked on keyboard it will correspond to arrow on screen.  
 const handleKeyClick = ({key}) => {    
@@ -76,8 +77,52 @@ muteButton.addEventListener('click', handleMute)
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations this is a good resource 
 // most likely a canvas element  
 
-// canvas grabbing/manipulate
-ctx = document.getElementById('myCanvas') 
+// canvas grabbing/manipulate 
+
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+const lx = 200 
+const ux = 400
+const rx = 600
+const dx = 800
+let y = 50
+let dy = 2; 
+let random = [8,10,12,14,10.2,6,9]
+
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(lx, y, 30, 0, Math.PI*2); 
+    ctx.arc(ux, y, 30, 0, Math.PI*2); 
+    ctx.arc(rx, y, 30, 0, Math.PI*2); 
+    ctx.arc(dx, y, 30, 0, Math.PI*2);
+    ctx.fillStyle = "white";
+    ctx.fill();
+    ctx.closePath();
+} 
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    y += dy; 
+    if (y === canvas.height){
+       y = 50;
+    }
+} 
+
+function dropTheBall (){
+  setInterval(draw,8)
+} 
+
+
+startButton.addEventListener('click', dropTheBall) 
+console.log(startButton)
+ 
+
+
+
+
+
+
 
 
  
