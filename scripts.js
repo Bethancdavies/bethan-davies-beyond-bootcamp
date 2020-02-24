@@ -71,12 +71,6 @@ const handleMute = () =>{
 // pause button
 muteButton.addEventListener('click', handleMute)
 
-// score counter 
-// functionality, how do I want it to work 
-// animate and generate falling buttons? icons easiest? 
-// https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations this is a good resource 
-// most likely a canvas element  
-
 // canvas grabbing/manipulate 
 
 const canvas = document.getElementById("myCanvas");
@@ -86,7 +80,8 @@ const ux = 400
 const rx = 600
 const dx = 800
 let y = 50
-let dy = 2; 
+let dy = 2;  
+// for speed?
 let random = [8,10,12,14,10.2,6,9]
 
 function drawBall() {
@@ -110,14 +105,35 @@ function draw() {
 } 
 
 function dropTheBall (){
-  setInterval(draw,8)
-} 
-
+  setInterval(draw,8) 
+}  
 
 startButton.addEventListener('click', dropTheBall) 
-console.log(startButton)
- 
 
+
+// timer 
+let timeLeft = 5;
+const timer = document.getElementById('timer')  
+let timerId =  setInterval(timerCountdown,1000); 
+
+
+function timerCountdown() {
+    if (timeLeft == -1) {
+        showGameOver()  
+        clearInterval(timerId)
+ 
+    } else {
+        timer.innerHTML = timeLeft;
+        timeLeft--; 
+        
+    }
+} 
+
+function showGameOver () {
+  window.alert('GAME OVER')  
+
+  // fix this to something more user friendly and halt game TO DO
+}
 
 
 
