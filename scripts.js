@@ -74,4 +74,10 @@ muteButton.addEventListener('click', handleMute)
 // functionality, how do I want it to work 
 // animate and generate falling buttons? icons easiest? 
 // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations this is a good resource 
-// most likely a canvas element
+// most likely a canvas element  
+
+// canvas grabbing/manipulate
+ctx = document.getElementById('myCanvas') 
+
+
+ 
