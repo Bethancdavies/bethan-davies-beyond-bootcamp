@@ -84,16 +84,24 @@ let dy = 2;
 // for speed?
 let random = [8,10,12,14,10.2,6,9]
 
+ 
+
 function drawBall() {
     ctx.beginPath();
-    ctx.arc(lx, y, 30, 0, Math.PI*2); 
+    ctx.arc(lx, y, 30, 0, Math.PI*2);
     ctx.arc(ux, y, 30, 0, Math.PI*2); 
     ctx.arc(rx, y, 30, 0, Math.PI*2); 
     ctx.arc(dx, y, 30, 0, Math.PI*2);
     ctx.fillStyle = "white";
     ctx.fill();
-    ctx.closePath();
+    ctx.closePath(); 
+   
+}   
+
+function NoteHit(){ 
+  console.log(drawBall)
 } 
+NoteHit()
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -105,14 +113,16 @@ function draw() {
 } 
 
 function dropTheBall (){
-  setInterval(draw,8) 
+  setInterval(draw,8)  
+ 
 }  
 
 startButton.addEventListener('click', dropTheBall) 
 
 
-// timer 
-let timeLeft = 5;
+// timer  
+// how to pull this timer out to start on start button click rather than on page load :(
+let timeLeft = 30;
 const timer = document.getElementById('timer')  
 let timerId =  setInterval(timerCountdown,1000); 
 
